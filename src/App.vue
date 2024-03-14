@@ -13,8 +13,6 @@
 
 </script>
 
-<style scoped>
-  button:focus {
-    outline: none; /*解决浏览器黑色边框问题*/
-  }
+<style lang="scss" scoped>
+
 </style>
