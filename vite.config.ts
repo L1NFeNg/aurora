@@ -4,6 +4,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { visualizer } from "rollup-plugin-visualizer";
+import { resolve } from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,5 +21,11 @@ export default defineConfig({
       open: true,
       filename: "visualizer.html" //分析图生成的文件名
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.vue', '.json', '.ts'],
+    alias: {
+      "@": resolve(__dirname, "./src")
+    }
+  }
 });

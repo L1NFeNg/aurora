@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 /visualizer.html
+auto-imports.d.ts
+components.d.ts
 
