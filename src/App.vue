@@ -7,6 +7,7 @@
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
   </div>
+  <router-view/>
 </template>
 
 <script lang="ts" setup>
