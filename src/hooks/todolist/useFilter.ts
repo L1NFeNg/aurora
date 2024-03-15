@@ -1,15 +1,13 @@
 import { computed, onMounted, onUnmounted, Ref, ref } from "vue";
 import { filter } from "@/utils/todoStorage.ts";
+import { Todo, TodoFilterHash, VALID_HASH } from "@/types/todolist.type.ts";
 
-const VALID_HASH = ["all", "active", "completed"];
-
-export default function useFilter(todoListRef: Ref<any[]>) {
-  const visibilityRef = ref("all");
+export default function useFilter(todoListRef: Ref<Todo[]>) {
+  const visibilityRef: Ref<TodoFilterHash> = ref("all");
 
   const onhashchange = () => {
-    const hash = location.hash.replace(/#\/?/, "");
+    const hash = location.hash.replace(/#\/?/, "") as any;
     if (VALID_HASH.includes(hash)) {
-      // 有效的
       visibilityRef.value = hash;
     } else {
       location.hash = "";
@@ -43,6 +41,6 @@ export default function useFilter(todoListRef: Ref<any[]>) {
     visibilityRef,
     filteredTodoListRef,
     remainingCountRef,
-    completedCountRef
+    completedCountRef,
   };
 }

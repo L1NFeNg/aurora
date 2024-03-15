@@ -1,3 +1,5 @@
+import { Todo } from "@/types/todolist.type.ts";
+
 const LOCAL_KEY = "todolist";
 
 /**
@@ -16,17 +18,19 @@ export function fetch(): [] {
  * 保存所有任务
  * @param todos 任务列表
  */
-export function save(todos: []) {
+export function save(todos: Todo[]) {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(todos));
 }
 
 export function filter(todoList: any[], visibility = "all") {
   if (visibility === "all") {
     return todoList;
-  } else if (visibility === "active") {
+  }
+  if (visibility === "active") {
     return todoList.filter(item => !item.completed);
-  } else if (visibility === "completed") {
+  }
+  if (visibility === "completed") {
     return todoList.filter(item => item.completed);
   }
-  throw new Error("invalid visibility value");
+  throw Error("");
 }

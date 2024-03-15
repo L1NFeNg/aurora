@@ -1,6 +1,7 @@
 import { computed, Ref, ref } from "vue";
+import { Todo } from "@/types/todolist.type.ts";
 
-export default function useEditTodo(todoListRef: Ref<any[]>) {
+export default function useEditTodo(todoListRef: Ref<Todo[]>) {
   const editingTodoRef = ref(null); // 正在修改的是哪一个todo
   const editInputRef = ref([]); // 修改的Input
   let originTitle: any = null;
@@ -37,6 +38,6 @@ export default function useEditTodo(todoListRef: Ref<any[]>) {
     editTodoHandle,
     doneEditHandle,
     cancelEditHandle,
-    setAllCheckedHandle
+    setAllCheckedHandle,
   };
 }

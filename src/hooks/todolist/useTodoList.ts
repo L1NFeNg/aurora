@@ -1,14 +1,15 @@
-import { ref, watchEffect } from "vue";
+import { Ref, ref, watchEffect } from "vue";
 import * as todoStorage from "@/utils/todoStorage.ts";
+import { Todo } from "@/types/todolist.type.ts";
 
 export default function useTodoList() {
-  const todosRef = ref(todoStorage.fetch());
+  const todoListRef: Ref<Todo[]> = ref(todoStorage.fetch());
 
   watchEffect(() => {
-    todoStorage.save(todosRef.value);
+    todoStorage.save(todoListRef.value);
   });
 
   return {
-    todoListRef: todosRef
+    todoListRef,
   };
 }

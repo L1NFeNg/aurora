@@ -8,11 +8,11 @@
       </header>
       <section v-show="todoListRef.length>0" class="main">
         <input id="toggle-all" :checked="allDoneRef"
-               type="checkbox" @input="setAllCheckedHandle($event.target?.checked)"/>
+               type="checkbox" @input="setAllCheckedHandle(($event.target as HTMLInputElement)?.checked)"/>
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-          <li v-for="(todo) in filteredTodoListRef" :key="todo.id"
-              :class="{ completed:todo.completed, editing:todo===editingTodoRef } " class="todo">
+          <li v-for="todo in filteredTodoListRef" :key="todo.id"
+              :class="{completed:todo.completed, editing:todo===editingTodoRef}" class="todo">
             <input v-model="todo.title" class="edit" type="text" v-on:blur="doneEditHandle(todo)"
                    v-on:keyup.enter="doneEditHandle(todo)" v-on:keyup.esc="cancelEditHandle(todo)"/>
             <div class="view">
@@ -24,10 +24,10 @@
         </ul>
       </section>
       <footer v-show="todoListRef.length>0" class="footer">
-      <span class="todo-count">
-        <strong>{{ remainingCountRef }}</strong>
-        <span>item{{ remainingCountRef <= 1 ? "" : "s" }} left</span>
-      </span>
+        <span class="todo-count">
+          <strong>{{ remainingCountRef }}</strong>
+          <span>item{{ remainingCountRef <= 1 ? "" : "s" }} left</span>
+        </span>
         <ul class="filters">
           <li><a :class="{selected:visibilityRef==='all'}" href="#/all">All</a></li>
           <li><a :class="{selected:visibilityRef==='active'}" href="#/active">Active</a></li>
@@ -48,7 +48,6 @@
   import useEditTodo from "@/hooks/todolist/useEditTodo.ts";
   import useRemoveTodo from "@/hooks/todolist/useRemoveTodo.ts";
 
-
   const { todoListRef } = useTodoList();
   const { newTodoRef, addTodo } = useNewTodo(todoListRef);
   const { visibilityRef, filteredTodoListRef, remainingCountRef, completedCountRef } = useFilter(todoListRef);
@@ -61,7 +60,6 @@
     setAllCheckedHandle,
   } = useEditTodo(todoListRef);
   const { removeHandle, removeCompletedHandle } = useRemoveTodo(todoListRef);
-
 </script>
 
 <style lang="scss" scoped>
