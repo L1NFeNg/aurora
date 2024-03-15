@@ -11,24 +11,25 @@
           v-model="newTodoRef"
           v-on:keyup.enter="addTodo"/>
     </header>
-    <section class="main">
-      <input id="toggle-all" class="toggle-all" type="checkbox"/>
+    <section v-show="todoListRef.length>0" class="main">
+      <input id="toggle-all" class="toggle-all" type="checkbox"
+             :checked="allDoneRef" @input="setAllCheckedHandle($event.target?.checked)"/>
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
         <li class="todo" :class="{ completed:todo.completed, editing:todo===editingTodoRef } "
             v-for="(todo) in filteredTodoListRef" :key="todo.id">
-          <input v-model="todo.title" v-on:blur="doneEditHandle"
-                 v-on:keyup.enter="doneEditHandle" v-on:keyup.esc="cancelEditHandle(todo)"
+          <input v-model="todo.title" v-on:blur="doneEditHandle(todo)"
+                 v-on:keyup.enter="doneEditHandle(todo)" v-on:keyup.esc="cancelEditHandle(todo)"
                  class="edit" type="text"/>
           <div class="view">
             <input class="toggle" type="checkbox" v-model="todo.completed"/>
             <label v-on:dblclick="editTodoHandle(todo)">{{ todo.title }}</label>
-            <button class="destroy"></button>
+            <button v-on:click="removeHandle(todo)" class="destroy"></button>
           </div>
         </li>
       </ul>
     </section>
-    <footer class="footer">
+    <footer v-show="todoListRef.length>0" class="footer">
         <span class="todo-count">
           <strong>{{ remainingCountRef }}</strong>
           <span>item{{ remainingCountRef <= 1 ? "" : "s" }} left</span>
@@ -38,7 +39,7 @@
         <li><a :class="{selected:visibilityRef==='active'}" href="#/active">Active</a></li>
         <li><a :class="{selected:visibilityRef==='completed'}" href="#/completed">Completed</a></li>
       </ul>
-      <button class="clear-completed" v-show="completedCountRef > 0">
+      <button v-on:click="removeCompletedHandle" class="clear-completed" v-show="completedCountRef > 0">
         Clear completed
       </button>
     </footer>
@@ -50,12 +51,22 @@
   import useNewTodo from "@/hooks/todolist/useNewTodo";
   import useFilter from "@/hooks/todolist/useFilter";
   import useEditTodo from "@/hooks/todolist/useEditTodo.ts";
+  import useRemoveTodo from "@/hooks/todolist/useRemoveTodo.ts";
 
 
   const { todoListRef } = useTodoList();
   const { newTodoRef, addTodo } = useNewTodo(todoListRef);
-  const { editingTodoRef, editTodoHandle, doneEditHandle, cancelEditHandle } = useEditTodo(todoListRef);
   const { visibilityRef, filteredTodoListRef, remainingCountRef, completedCountRef } = useFilter(todoListRef);
+  const {
+    editingTodoRef,
+    allDoneRef,
+    editTodoHandle,
+    doneEditHandle,
+    cancelEditHandle,
+    setAllCheckedHandle,
+  } = useEditTodo(todoListRef);
+  const { removeHandle, removeCompletedHandle } = useRemoveTodo(todoListRef);
+
 </script>
 
 <style lang="css" scoped>
@@ -218,6 +229,7 @@
     margin: 0 0 0 43px;
   }
 
+  /* 编辑状态下隐藏 */
   .todo-list li.editing .view {
     display: none;
   }
