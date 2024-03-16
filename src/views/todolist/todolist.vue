@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts" setup>
-  import useTodoList from "@/hooks/todolist/useTodoList";
-  import useNewTodo from "@/hooks/todolist/useNewTodo";
-  import useFilter from "@/hooks/todolist/useFilter";
+  import useTodoList from "@/hooks/todolist/useTodoList.ts";
+  import useNewTodo from "@/hooks/todolist/useNewTodo.ts";
+  import useFilter from "@/hooks/todolist/useFilter.ts";
   import useEditTodo from "@/hooks/todolist/useEditTodo.ts";
   import useRemoveTodo from "@/hooks/todolist/useRemoveTodo.ts";
 

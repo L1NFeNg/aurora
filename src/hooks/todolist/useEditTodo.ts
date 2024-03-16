@@ -1,5 +1,5 @@
 import { computed, Ref, ref, watch } from "vue";
-import { Todo } from "@/types/todolist.type.ts";
+import { Todo } from "@/views/todolist/type.ts";
 
 export default function useEditTodo(todoListRef: Ref<Todo[]>) {
   // 正在修改的是哪一个任务

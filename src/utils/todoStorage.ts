@@ -1,4 +1,4 @@
-import { Todo } from "@/types/todolist.type.ts";
+import { Todo } from "@/views/todolist/type.ts";
 
 const LOCAL_KEY = "todolist";
 

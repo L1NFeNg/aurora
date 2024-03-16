@@ -1,6 +1,6 @@
 import { Ref, ref } from "vue";
 import { generateId } from "@/utils/generateId.ts";
-import { Todo } from "@/types/todolist.type.ts";
+import { Todo } from "@/views/todolist/type.ts";
 
 
 export default function useNewTodo(todoListRef: Ref<Todo[]>) {

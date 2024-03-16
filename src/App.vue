@@ -1,11 +1,11 @@
 <template>
-  <layout>
+  <Layout>
     <router-view/>
-  </layout>
+  </Layout>
 </template>
 
 <script lang="ts" setup>
-  import layout from "@/layouts/index.vue";
+  import Layout from "@/layouts/index.vue";
 </script>
 
 <style lang="scss" scoped>

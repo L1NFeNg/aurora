@@ -1,6 +1,6 @@
 import { computed, onMounted, onUnmounted, Ref, ref } from "vue";
 import { filter } from "@/utils/todoStorage.ts";
-import { Todo, TodoFilterHash, validTodoFilterHash } from "@/types/todolist.type.ts";
+import { Todo, TodoFilterHash, validTodoFilterHash } from "@/views/todolist/type.ts";
 
 export default function useFilter(todoListRef: Ref<Todo[]>) {
   const visibilityRef: Ref<TodoFilterHash> = ref("all");

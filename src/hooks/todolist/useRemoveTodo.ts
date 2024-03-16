@@ -1,5 +1,5 @@
 import { Ref } from "vue";
-import { Todo } from "@/types/todolist.type.ts";
+import { Todo } from "@/views/todolist/type.ts";
 
 export default function useRemoveTodo(todoListRef: Ref<Todo[]>) {
   const removeHandle = (todo: Todo) => {
