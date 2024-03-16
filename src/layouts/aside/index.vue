@@ -15,7 +15,7 @@
         <span id="title-text">Aurora</span>
       </div>
       <div class="menu-container">
-        <template v-for="menu in menuListRef" v-if="menuListRef" :id="menu.id">
+        <template v-for="menu in menuListRef" :id="menu.id">
           <RouterLink :to="menu.route" @click="checkedMenuHandle(menu)">
             <AsideMenuItem :checked="menu===checkedMenuRef" :icon="menu.icon" :title="menu.title"></AsideMenuItem>
           </RouterLink>
@@ -50,7 +50,7 @@
   }
 
   .menu-container {
-    background: linear-gradient(to top, transparent, #1e3448 800px), linear-gradient(to left, #3498DB, #4b8ad3 100px);
+    background: linear-gradient(to top, transparent, #1e3448 60%), linear-gradient(to left, #3498DB, #4b8ad3 100px);
     position: relative;
     top: 48px;
     overflow: auto;
@@ -58,7 +58,6 @@
 
     &::-webkit-scrollbar {
       width: 0;
-
     }
   }
 
