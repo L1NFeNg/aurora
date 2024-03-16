@@ -231,7 +231,7 @@
 
             &:checked {
               + label {
-                background-image: url("@/assets/checked.svg");
+                background-image: url("@/assets/svg/checked.svg");
               }
             }
           }
@@ -244,7 +244,7 @@
             transition: color 0.4s;
             font-weight: 400;
             color: #4d4d4d;
-            background-image: url("@/assets/unchecked.svg");
+            background-image: url("@/assets/svg/unchecked.svg");
             background-repeat: no-repeat;
             background-position: center left;
           }

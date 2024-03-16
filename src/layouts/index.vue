@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import Aside from "@/layouts/aside/index.vue";
 </script>
 
@@ -7,7 +7,7 @@
     <el-container>
       <Aside/>
       <el-container>
-        <el-header>Header</el-header>
+        <!--<el-header>Header</el-header>-->
         <el-main>
           <slot></slot>
         </el-main>
@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .common-layout {
     height: 100%;
     width: 100%;

@@ -1,3 +1,5 @@
+@import "//at.alicdn.com/t/c/font_4469656_542n37vfgwg.css";
+
 html, body {
     margin: 0;
     height: 100%;
@@ -8,8 +10,6 @@ html, body {
     height: 100%;
     width: 100%;
 }
-
-
 
 :focus {
     outline: none; /*解决浏览器黑色边框问题*/

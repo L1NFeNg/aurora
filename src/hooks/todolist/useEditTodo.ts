@@ -23,7 +23,7 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
   };
 
 
-  const doneEditHandle = (todo: any) => {
+  const doneEditHandle = (todo: Todo) => {
     editingTodoRef.value = null;
     const title = todo.title.trim();
     if (title) {
@@ -33,7 +33,7 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
     }
   };
 
-  const cancelEditHandle = (todo: any) => {
+  const cancelEditHandle = (todo: Todo) => {
     editingTodoRef.value = null;
     todo.title = originTitle;
   };

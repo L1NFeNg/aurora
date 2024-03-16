@@ -4,28 +4,29 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { visualizer } from "rollup-plugin-visualizer";
-import { resolve } from "path"
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver()],
     }),
     visualizer({
       // 打包体积分析
       open: true,
-      filename: "visualizer.html" //分析图生成的文件名
-    })
+      //分析图生成的文件名ss
+      filename: "visualizer.html",
+    }),
   ],
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts'],
+    extensions: [".js", ".vue", ".json", ".ts"],
     alias: {
-      "@": resolve(__dirname, "./src")
-    }
-  }
+      "@": resolve(__dirname, "./src"),
+    },
+  },
 });
