@@ -11,13 +11,13 @@
                type="checkbox" @input="setAllCheckedHandle(($event.target as HTMLInputElement)?.checked)"/>
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-          <li v-for="todo in filteredTodoListRef" :key="todo.id"
+          <li v-for="( todo , index ) in filteredTodoListRef" :key="todo.id"
               :class="{completed:todo.completed, editing:todo===editingTodoRef}" class="todo">
-            <input v-model="todo.title" class="edit" type="text" v-on:blur="doneEditHandle(todo)"
+            <input ref="editInputListRef" v-model="todo.title" class="edit" type="text" v-on:blur="doneEditHandle(todo)"
                    v-on:keyup.enter="doneEditHandle(todo)" v-on:keyup.esc="cancelEditHandle(todo)"/>
             <div class="view">
               <input v-model="todo.completed" class="toggle" type="checkbox"/>
-              <label v-on:dblclick="editTodoHandle(todo)">{{ todo.title }}</label>
+              <label v-on:dblclick="editTodoHandle(todo,editInputListRef[index])">{{ todo.title }}</label>
               <button class="destroy" v-on:click="removeHandle(todo)"></button>
             </div>
           </li>
@@ -52,12 +52,8 @@
   const { newTodoRef, addTodo } = useNewTodo(todoListRef);
   const { visibilityRef, filteredTodoListRef, remainingCountRef, completedCountRef } = useFilter(todoListRef);
   const {
-    editingTodoRef,
-    allDoneRef,
-    editTodoHandle,
-    doneEditHandle,
-    cancelEditHandle,
-    setAllCheckedHandle,
+    editingTodoRef, allDoneRef, editInputListRef,
+    editTodoHandle, doneEditHandle, cancelEditHandle, setAllCheckedHandle,
   } = useEditTodo(todoListRef);
   const { removeHandle, removeCompletedHandle } = useRemoveTodo(todoListRef);
 </script>

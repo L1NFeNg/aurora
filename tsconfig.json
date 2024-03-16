@@ -27,12 +27,15 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.type.ts",
+    "types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
