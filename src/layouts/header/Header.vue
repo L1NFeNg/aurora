@@ -10,7 +10,6 @@
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="checkedMenuRef?.route">
           <span class="item-text" v-show="checkedMenuRef">{{ checkedMenuRef?.title }}</span>
-          <span class="item-text">{{ checkedMenuRef ? checkedMenuRef : "meiyou"}}</span>
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>

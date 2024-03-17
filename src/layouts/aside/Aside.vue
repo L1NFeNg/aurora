@@ -2,9 +2,14 @@
   import AsideMenuItem from "@/layouts/aside/AsideMenuItem.vue";
   import useMenuList from "@/hooks/menu/useMenuList.ts";
   import useMenuChecked from "@/hooks/menu/useMenuChecked.ts";
+  import { onMounted } from "vue";
+  import useOpenLastMenu from "@/hooks/menu/useOpenLastMenu.ts";
 
   const { menuListRef } = useMenuList();
   const { handleCheckedMenu, checkedMenuRef } = useMenuChecked();
+  onMounted(() => {
+    useOpenLastMenu();
+  });
 </script>
 
 <template>
@@ -17,7 +22,8 @@
       <div class="menu-container">
         <template v-for="menu in menuListRef" :id="menu.id">
           <RouterLink :to="menu.route" @click="handleCheckedMenu(menu)">
-            <AsideMenuItem :checked="menu===checkedMenuRef" :icon="menu.icon" :title="menu.title"></AsideMenuItem>
+            <AsideMenuItem :checked="menu.route===checkedMenuRef?.route" :icon="menu.icon"
+                           :title="menu.title"></AsideMenuItem>
           </RouterLink>
         </template>
       </div>
