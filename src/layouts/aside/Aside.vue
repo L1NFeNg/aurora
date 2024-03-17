@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import AsideMenuItem from "@/layouts/aside/aside-menu-item.vue";
+  import AsideMenuItem from "@/layouts/aside/AsideMenuItem.vue";
   import useMenuList from "@/hooks/menu/useMenuList.ts";
   import useMenuChecked from "@/hooks/menu/useMenuChecked.ts";
 

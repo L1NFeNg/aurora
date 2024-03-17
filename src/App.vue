@@ -1,11 +1,11 @@
 <template>
-  <Layout>
-    <router-view/>
-  </Layout>
+  <LeftMenuLayout>
+    <RouterView/>
+  </LeftMenuLayout>
 </template>
 
 <script lang="ts" setup>
-  import Layout from "@/layouts/index.vue";
+  import LeftMenuLayout from "@/layouts/LeftMenuLayout.vue";
 </script>
 
 <style lang="scss" scoped>

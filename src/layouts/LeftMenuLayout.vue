@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import Aside from "@/layouts/aside/index.vue";
+  import Aside from "@/layouts/aside/Aside.vue";
 </script>
 
 <template>
@@ -7,7 +7,7 @@
     <el-container>
       <Aside/>
       <el-container>
-        <!--<el-header>Header</el-header>-->
+        <el-header>Header</el-header>
         <el-main>
           <slot></slot>
         </el-main>

@@ -8,17 +8,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/home",
     name: "home",
-    component: () => import("@/views/home.vue"),
+    component: () => import("@/views/Home.vue"),
   },
   {
     path: "/welcome",
     name: "welcome",
-    component: () => import("@/views/welcome.vue"),
+    component: () => import("@/views/Welcome.vue"),
   },
   {
     path: "/todolist",
     name: "todolist",
-    component: () => import("@/views/todolist/todolist.vue"),
+    component: () => import("@/views/todolist/Todolist.vue"),
   },
 ];
 
