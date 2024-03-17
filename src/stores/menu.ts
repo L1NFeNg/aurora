@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 import { ref, Ref } from "vue";
-import { Menu } from "@/layouts/aside/type.ts";
+import { MenuProps } from "@/types/layout.d.ts";
 
 export const useMenuStore =
   defineStore("menu", () => {
-      const checkedMenuRef: Ref<Nullable<Menu>> = ref(null);
+      const checkedMenuRef: Ref<Nullable<MenuProps>> = ref(null);
 
       return { checkedMenuRef };
     },

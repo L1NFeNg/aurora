@@ -20,6 +20,16 @@ const routes: Array<RouteRecordRaw> = [
     name: "todolist",
     component: () => import("@/views/todolist/Todolist.vue"),
   },
+  {
+    path: "/form",
+    name: "form",
+    component: () => import("@/views/FormTest.vue"),
+  },
+  {
+    path: "/deb&thr",
+    name: "deb&thr",
+    component: () => import("@/views/UtilsTest.vue"),
+  },
 ];
 
 const router = createRouter({

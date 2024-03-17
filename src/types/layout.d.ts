@@ -1,4 +1,4 @@
-export type Menu = {
+export type MenuProps = {
   id?: string
   icon: string
   title: string

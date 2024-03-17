@@ -1,13 +1,17 @@
 <script lang="ts" setup>
-  import { Menu } from "@/layouts/aside/type.ts";
+  import { MenuProps } from "@/types/layout";
 
-  const props = defineProps<Menu>();
+  const props = withDefaults(defineProps<MenuProps>(), {
+    icon: "icon-dingdan",
+    title: "未设置",
+    checked: false,
+  });
 </script>
 
 <template>
-  <div id="aside-item" :class="props.checked?'checked':''">
-    <i id="icon" :class="props.icon?props.icon:'icon-dingdan'" class="iconfont"></i>
-    <span id="title">{{ props.title ? props.title : "未命名" }}</span>
+  <div id="aside-item" :class="props.checked ? 'checked' : ''">
+    <i id="icon" :class="props.icon" class="iconfont"></i>
+    <span id="title">{{ props.title }}</span>
   </div>
 </template>
 

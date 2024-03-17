@@ -24,6 +24,18 @@ export default {
             title: "TodoList",
             route: "./todolist",
           },
+          {
+            id: generateId(),
+            icon: "icon-dingdan",
+            title: "表单",
+            route: "./form",
+          },
+          {
+            id: generateId(),
+            icon: "icon-dingdan",
+            title: "防抖节流",
+            route: "./deb&thr",
+          },
         ],
       },
     };

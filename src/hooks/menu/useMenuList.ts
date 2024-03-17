@@ -1,9 +1,9 @@
 import { onMounted, Ref, ref } from "vue";
-import { Menu } from "@/layouts/aside/type.ts";
+import { MenuProps } from "@/types/layout.d.ts";
 import axios from "axios";
 
 export default function useMenuList() {
-  const menuListRef: Ref<Nullable<Menu[]>> = ref([]);
+  const menuListRef: Ref<Nullable<MenuProps[]>> = ref([]);
   const getMenuList = async () => {
     await axios.get("/mock/menu/getMenuList").then(res => {
       menuListRef.value = res.data.data.menus;
