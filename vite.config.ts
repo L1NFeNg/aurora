@@ -8,6 +8,7 @@ import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [
     vue(),
     AutoImport({
@@ -19,7 +20,7 @@ export default defineConfig({
     visualizer({
       // 打包体积分析
       open: true,
-      //分析图生成的文件名ss
+      //分析图生成的文件名
       filename: "visualizer.html",
     }),
   ],
