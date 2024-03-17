@@ -6,7 +6,7 @@ import { Todo } from "@/views/todolist/type.ts";
 export default function useNewTodo(todoListRef: Ref<Todo[]>) {
   const newTodoRef = ref("");
   // 新建一个任务
-  const addTodo = () => {
+  const handleAddTodo = () => {
     const value: string = newTodoRef.value && newTodoRef.value.trim();
     if (!value) {
       return;
@@ -22,6 +22,6 @@ export default function useNewTodo(todoListRef: Ref<Todo[]>) {
   };
 
   return {
-    newTodoRef, addTodo,
+    newTodoRef, handleAddTodo,
   };
 }

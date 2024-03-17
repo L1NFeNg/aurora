@@ -7,8 +7,12 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
   // 所有的输入文本框，用于在v-for中绑定
   const editInputListRef: Ref<HTMLInputElement[]> = ref([]);
 
+  const allDoneRef = computed(() => {
+    return todoListRef.value.filter(it => !it.completed).length === 0;
+  });
+
   let originTitle: any = null;
-  const editTodoHandle = (todo: Todo, editInputRef: HTMLInputElement) => {
+  const handleEditTodo = (todo: Todo, editInputRef: HTMLInputElement) => {
     // 点击后自动获取焦点
     watch(editingTodoRef, () => {
       editInputListRef.value = editInputListRef.value.map((input) => {
@@ -22,8 +26,7 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
     editingTodoRef.value = todo;
   };
 
-
-  const doneEditHandle = (todo: Todo) => {
+  const handleDoneEdit = (todo: Todo) => {
     editingTodoRef.value = null;
     const title = todo.title.trim();
     if (title) {
@@ -33,20 +36,16 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
     }
   };
 
-  const cancelEditHandle = (todo: Todo) => {
+  const handleCancelEdit = (todo: Todo) => {
     editingTodoRef.value = null;
     todo.title = originTitle;
   };
-
-  const allDoneRef = computed(() => {
-    return todoListRef.value.filter(it => !it.completed).length === 0;
-  });
 
   /**
    * 设置所有任务已完成
    * @param checked 头部控制按钮状态
    */
-  const setAllCheckedHandle = (checked: boolean) => {
+  const handleSetAllChecked = (checked: boolean) => {
     todoListRef.value.forEach((todo) => {
       todo.completed = checked;
     });
@@ -56,9 +55,9 @@ export default function useEditTodo(todoListRef: Ref<Todo[]>) {
     editingTodoRef,
     allDoneRef,
     editInputListRef,
-    editTodoHandle,
-    doneEditHandle,
-    cancelEditHandle,
-    setAllCheckedHandle,
+    handleEditTodo,
+    handleDoneEdit,
+    handleCancelEdit,
+    handleSetAllChecked,
   };
 }

@@ -4,21 +4,21 @@
       <header class="header">
         <h1>todos</h1>
         <input v-model="newTodoRef" autocomplete="off" autofocus class="new-todo"
-               placeholder="What needs to be done?" v-on:keyup.enter="addTodo"/>
+               placeholder="What needs to be done?" v-on:keyup.enter="handleAddTodo"/>
       </header>
       <section v-show="todoListRef.length>0" class="main">
         <input id="toggle-all" :checked="allDoneRef"
-               type="checkbox" @input="setAllCheckedHandle(($event.target as HTMLInputElement)?.checked)"/>
+               type="checkbox" @input="handleSetAllChecked(($event.target as HTMLInputElement)?.checked)"/>
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
           <li v-for="( todo , index ) in filteredTodoListRef" :key="todo.id"
               :class="{completed:todo.completed, editing:todo===editingTodoRef}" class="todo">
-            <input ref="editInputListRef" v-model="todo.title" class="edit" type="text" v-on:blur="doneEditHandle(todo)"
-                   v-on:keyup.enter="doneEditHandle(todo)" v-on:keyup.esc="cancelEditHandle(todo)"/>
+            <input ref="editInputListRef" v-model="todo.title" class="edit" type="text" v-on:blur="handleDoneEdit(todo)"
+                   v-on:keyup.enter="handleDoneEdit(todo)" v-on:keyup.esc="handleCancelEdit(todo)"/>
             <div class="view">
               <input v-model="todo.completed" class="toggle" type="checkbox"/>
-              <label v-on:dblclick="editTodoHandle(todo,editInputListRef[index])">{{ todo.title }}</label>
-              <button class="destroy" v-on:click="removeHandle(todo)"></button>
+              <label v-on:dblclick="handleEditTodo(todo,editInputListRef[index])">{{ todo.title }}</label>
+              <button class="destroy" v-on:click="handleRemove(todo)"></button>
             </div>
           </li>
         </ul>
@@ -33,7 +33,7 @@
           <li><a :class="{selected:visibilityRef==='active'}" href="#/active">Active</a></li>
           <li><a :class="{selected:visibilityRef==='completed'}" href="#/completed">Completed</a></li>
         </ul>
-        <button v-show="completedCountRef > 0" class="clear-completed" v-on:click="removeCompletedHandle">
+        <button v-show="completedCountRef > 0" class="clear-completed" v-on:click="handleRemoveCompleted">
           Clear completed
         </button>
       </footer>
@@ -49,13 +49,13 @@
   import useRemoveTodo from "@/hooks/todolist/useRemoveTodo.ts";
 
   const { todoListRef } = useTodoList();
-  const { newTodoRef, addTodo } = useNewTodo(todoListRef);
+  const { newTodoRef, handleAddTodo } = useNewTodo(todoListRef);
   const { visibilityRef, filteredTodoListRef, remainingCountRef, completedCountRef } = useFilter(todoListRef);
   const {
     editingTodoRef, allDoneRef, editInputListRef,
-    editTodoHandle, doneEditHandle, cancelEditHandle, setAllCheckedHandle,
+    handleEditTodo, handleDoneEdit, handleCancelEdit, handleSetAllChecked,
   } = useEditTodo(todoListRef);
-  const { removeHandle, removeCompletedHandle } = useRemoveTodo(todoListRef);
+  const { handleRemove, handleRemoveCompleted } = useRemoveTodo(todoListRef);
 </script>
 
 <style lang="scss" scoped>

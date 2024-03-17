@@ -3,15 +3,16 @@ import { Menu } from "@/layouts/aside/type.ts";
 
 export default function useMenuChecked() {
   const checkedMenuRef: Ref<Nullable<Menu>> = ref(null);
-  const checkedMenuHandle = (menu: Menu) => {
+  const handleCheckedMenu = (menu: Menu) => {
     if (checkedMenuRef.value === menu) {
       return;
     } else {
       checkedMenuRef.value = menu;
+      console.log(checkedMenuRef.value);
     }
   };
   return {
     checkedMenuRef,
-    checkedMenuHandle,
+    handleCheckedMenu,
   };
 }

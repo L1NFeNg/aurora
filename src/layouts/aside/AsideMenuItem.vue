@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { Menu } from "@/layouts/aside/type.ts";
 
-
   const props = defineProps<Menu>();
 </script>
 
@@ -22,7 +21,6 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-
 
     #icon {
       font-size: 16px;

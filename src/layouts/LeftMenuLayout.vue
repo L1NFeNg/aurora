@@ -1,13 +1,14 @@
 <script lang="ts" setup>
   import Aside from "@/layouts/aside/Aside.vue";
+  import Header from "@/layouts/header/Header.vue";
 </script>
 
 <template>
   <div class="common-layout">
     <el-container>
       <Aside/>
-      <el-container>
-        <el-header>Header</el-header>
+      <el-container class="right">
+        <Header/>
         <el-main>
           <slot></slot>
         </el-main>
@@ -26,6 +27,8 @@
       width: 100%;
     }
 
-
+    :deep .el-container.right {
+      flex-direction: column;
+    }
   }
 </style>

@@ -2,14 +2,14 @@ import { Ref } from "vue";
 import { Todo } from "@/views/todolist/type.ts";
 
 export default function useRemoveTodo(todoListRef: Ref<Todo[]>) {
-  const removeHandle = (todo: Todo) => {
+  const handleRemove = (todo: Todo) => {
     todoListRef.value.splice(todoListRef.value.indexOf(todo), 1);
   };
-  const removeCompletedHandle = () => {
+  const handleRemoveCompleted = () => {
     todoListRef.value = todoListRef.value.filter(todo => !todo.completed);
   };
   return {
-    removeHandle,
-    removeCompletedHandle,
+    handleRemove,
+    handleRemoveCompleted,
   };
 }

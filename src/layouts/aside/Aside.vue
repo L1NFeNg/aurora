@@ -4,7 +4,7 @@
   import useMenuChecked from "@/hooks/menu/useMenuChecked.ts";
 
   const { menuListRef } = useMenuList();
-  const { checkedMenuHandle, checkedMenuRef } = useMenuChecked();
+  const { handleCheckedMenu, checkedMenuRef } = useMenuChecked();
 </script>
 
 <template>
@@ -16,7 +16,7 @@
       </div>
       <div class="menu-container">
         <template v-for="menu in menuListRef" :id="menu.id">
-          <RouterLink :to="menu.route" @click="checkedMenuHandle(menu)">
+          <RouterLink :to="menu.route" @click="handleCheckedMenu(menu)">
             <AsideMenuItem :checked="menu===checkedMenuRef" :icon="menu.icon" :title="menu.title"></AsideMenuItem>
           </RouterLink>
         </template>
@@ -32,6 +32,8 @@
 
   a {
     color: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   .aside-container {
