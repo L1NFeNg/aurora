@@ -3,6 +3,7 @@ import { useMenuStore } from "@/stores/menu.ts";
 import { storeToRefs } from "pinia";
 
 export default function useMenuChecked() {
+  ref()
   const store = useMenuStore();
   const { checkedMenuRef } = storeToRefs(store);
   const handleCheckedMenu = (menu: Menu) => {

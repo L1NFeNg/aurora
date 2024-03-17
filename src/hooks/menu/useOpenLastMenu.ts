@@ -1,6 +1,5 @@
 import { useMenuStore } from "@/stores/menu.ts";
 import { storeToRefs } from "pinia";
-import { useRoute, useRouter } from "vue-router";
 
 export default function useOpenLastMenu() {
   const store = useMenuStore();

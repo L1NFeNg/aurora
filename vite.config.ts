@@ -12,9 +12,18 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
+      // 这里是生成的global函数文件
+      dts: "./src/types/auto-imports.d.ts",
+      include: [
+        /\.[tj]sx?$/,
+        /\.vue$/, /\.vue\?vue/,
+        /\.md$/,
+      ],
+      imports: ["vue", "vue-router"],
       resolvers: [ElementPlusResolver()],
     }),
     Components({
+      dts: "./src/types/components.d.ts",
       resolvers: [ElementPlusResolver()],
     }),
     visualizer({
