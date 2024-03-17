@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-/visualizer.html
-/src/types/auto-imports.d.ts
-/src/types/components.d.ts
-
+/visualizer/index.html
+/types/auto-imports.d.ts
+/types/components.d.ts

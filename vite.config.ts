@@ -13,7 +13,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       // 这里是生成的global函数文件
-      dts: "src/types/auto-imports.d.ts",
+      dts: "types/auto-imports.d.ts",
       include: [
         /\.[tj]sx?$/,
         /\.vue$/, /\.vue\?vue/,
@@ -23,14 +23,14 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      dts: "src/types/components.d.ts",
+      dts: "types/components.d.ts",
       resolvers: [ElementPlusResolver()],
     }),
     visualizer({
       // 如果存在本地服务端口，将在打包后自动展示
       open: false,
       // 分析图生成的文件名
-      filename: "visualizer.html",
+      filename: "visualizer/index.html",
     }),
   ],
   resolve: {
