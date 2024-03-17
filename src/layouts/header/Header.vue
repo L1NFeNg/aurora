@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import useMenuChecked from "@/hooks/menu/useMenuChecked.ts";
 
   const { checkedMenuRef } = useMenuChecked();
@@ -9,14 +9,14 @@
     <div class="container">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="checkedMenuRef?.route">
-          <span class="item-text" v-show="checkedMenuRef">{{ checkedMenuRef?.title }}</span>
+          <span v-show="checkedMenuRef" class="item-text">{{ checkedMenuRef?.title }}</span>
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
   </el-header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   * {
     box-sizing: border-box;
   }
