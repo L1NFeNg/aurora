@@ -16,7 +16,7 @@ export default function useOpenLastMenu() {
   else if (route.fullPath !== checkedMenuRef.value.route) {
     router.push(checkedMenuRef.value.route!).catch(() => {
       router.push("/").finally(() => {
-        console.log("重新打开上次的页面失败,导向首页");
+        new Error("重新打开上次的页面失败,导向首页");
       });
       new Error("重新打开上次的页面失败。");
     });

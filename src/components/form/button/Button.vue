@@ -13,7 +13,6 @@
   });
   setDisableRef(props.disabled);
 
-  console.log(props);
 </script>
 
 <template>
