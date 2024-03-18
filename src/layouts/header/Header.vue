@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import useMenuChecked from "@/hooks/menu/useMenuChecked.ts";
+  import SocialLink from "@/layouts/header/SocialLink.vue";
 
   const { checkedMenuRef } = useMenuChecked();
 </script>
@@ -7,11 +8,20 @@
 <template>
   <el-header class="el-header">
     <div class="container">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="checkedMenuRef?.route">
-          <span v-show="checkedMenuRef" class="item-text">{{ checkedMenuRef?.title }}</span>
-        </el-breadcrumb-item>
-      </el-breadcrumb>
+      <div class="left">
+        <el-breadcrumb separator="/">
+          <el-breadcrumb-item :to="checkedMenuRef?.route">
+            <span v-show="checkedMenuRef" class="item-text">{{ checkedMenuRef?.title }}</span>
+          </el-breadcrumb-item>
+        </el-breadcrumb>
+      </div>
+      <div class="middle">
+
+      </div>
+      <div class="right">
+        <SocialLink href="https://github.com/L1NFeNg/aurora" icon="icon-github-fill"/>
+      </div>
+
     </div>
   </el-header>
 </template>
@@ -33,12 +43,29 @@
     flex-flow: row nowrap;
     align-items: center;
 
+    .left {
+      width: 200px; /* 左侧栏固定宽度 */
+
+    }
+
+    .middle {
+      flex-grow: 1; /* 中间内容区域自适应宽度 */
+
+    }
+
+    .right {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      width: 200px; /* 右侧栏固定宽度 */
+    }
+
     .item-text {
       font-size: 14px;
       font-weight: 400;
       padding: 10px;
       cursor: pointer;
-      color: #999999;
+      color: #555555;
       user-select: none;
       -webkit-user-drag: none;
 

@@ -5,3 +5,9 @@ export type MenuProps = {
   route?: string
   checked?: boolean
 }
+
+export type SocialLinkProps = {
+  href?: string
+  icon: string
+  iconSize?: number
+}
