@@ -1,6 +1,8 @@
-import { ButtonAbleModeEnum } from "@/enums/form/formEnum.ts";
+import { ButtonAutoDisableModeEnum } from "@/enums/form/formEnum.ts";
 
 export type ButtonProps = {
-  ableMode?: ButtonAbleModeEnum
-  handleFunction?: Function
+  autoDisableMode?: ButtonAutoDisableModeEnum
+  disabled?: boolean
+  clickDuration?: number
+  hidden?: boolean
 }

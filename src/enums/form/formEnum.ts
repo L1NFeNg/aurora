@@ -1,7 +1,5 @@
-export enum ButtonAbleModeEnum {
+export enum ButtonAutoDisableModeEnum {
   ONCE,
-  FREE,
-  DEBOUNCE,
-  THROTTLE,
-  AFTER_HANDLE
+  NEVER,
+  INTERVAL,
 }
