@@ -26,9 +26,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/FormTest.vue"),
   },
   {
-    path: "/deb&thr",
-    name: "deb&thr",
+    path: "/deb-thr",
+    name: "deb-thr",
     component: () => import("@/views/UtilsTest.vue"),
+  },
+  {
+    path: "/sticky-header",
+    name: "sticky-header",
+    component: () => import("@/views/StickyHeaderTest.vue"),
   },
 ];
 

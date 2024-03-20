@@ -1,5 +1,5 @@
 import { onMounted, Ref, ref } from "vue";
-import { MenuProps } from "@/types/layout.d.ts";
+import { MenuProps } from "@/types/layout";
 import axios from "axios";
 
 export default function useMenuList() {

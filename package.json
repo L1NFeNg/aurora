@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "axios": "^1.6.8",
     "element-plus": "^2.6.1",
+    "highlight.js": "^11.9.0",
     "mockjs": "^1.1.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",

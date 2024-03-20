@@ -18,6 +18,31 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "layout";
+
+  .el-main {
+    padding: $el-main-padding;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #55555570;
+      border-radius: 10px;
+      transition: width 600ms ease-out;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555555;
+    }
+  }
+
   .common-layout {
     height: 100%;
     width: 100%;

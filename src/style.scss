@@ -1,0 +1,17 @@
+@import "//at.alicdn.com/t/c/font_4469656_svjc9wa5dtf.css";
+@import "@/layouts/layout";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+:focus {
+  outline: none; /*解决浏览器黑色边框问题*/
+}
