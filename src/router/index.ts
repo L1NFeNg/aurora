@@ -35,6 +35,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "sticky-header",
     component: () => import("@/views/StickyHeaderTest.vue"),
   },
+  {
+    path: "/center-test",
+    name: "center-test",
+    component: () => import("@/views/CenterTest.vue"),
+  },
 ];
 
 const router = createRouter({

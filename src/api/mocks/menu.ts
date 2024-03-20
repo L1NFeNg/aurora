@@ -33,7 +33,7 @@ export default {
           {
             id: generateId(),
             icon: "icon-dingdan",
-            title: "防抖节流",
+            title: "防抖节流测试",
             route: "./deb-thr",
           },
           {
@@ -41,6 +41,12 @@ export default {
             icon: "icon-dingdan",
             title: "粘性头部测试",
             route: "./sticky-header",
+          },
+          {
+            id: generateId(),
+            icon: "icon-dingdan",
+            title: "居中测试",
+            route: "./center-test",
           },
         ],
       },
