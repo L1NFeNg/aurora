@@ -24,6 +24,7 @@
     padding: $el-main-padding;
 
     &::-webkit-scrollbar {
+      height: 7px;
       width: 7px;
     }
 

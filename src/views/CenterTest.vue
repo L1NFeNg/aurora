@@ -4,56 +4,60 @@
 
 <template>
   <el-row>
-    <el-col :span="6">
-      <div id="out-0" class="out">
-        <div id="in-1" class="in"></div>
+    <div id="out-0" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-1" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-2" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-7" class="out">
+      <div class="inner">
+        <div class="in"></div>
       </div>
-    </el-col>
-    <el-col :span="6">
-      <div id="out-1" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
-    <el-col :span="6">
-      <div id="out-2" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
+    </div>
   </el-row>
   <el-row>
-    <el-col :span="6">
-      <div id="out-3" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
-    <el-col :span="6">
-      <div id="out-4" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
-    <el-col :span="6">
-      <div id="out-5" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
-    <el-col :span="6">
-      <div id="out-6" class="out">
-        <div id="in-1" class="in"></div>
-      </div>
-    </el-col>
+    <div id="out-3" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-4" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-5" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
+    <div id="out-6" class="out">
+      <div id="in-1" class="in"></div>
+    </div>
   </el-row>
-  <el-row>
-    <el-col :span="6">
-      <div id="out-7" class="out">
-        <div class="inner">
-          <div class="in"></div>
-        </div>
-      </div>
-    </el-col>
-  </el-row>
+
+  <div class="text">
+    <!--    <span>需要居中对齐的元素</span>-->
+    <!--    <span>需要居中对齐的元素</span>-->
+    <div>123</div>
+  </div>
+
 </template>
 
 <style scoped lang="scss">
+
+  .text {
+    width: 100%;
+    text-align: center;
+    //    vertical-align: center;
+
+    div {
+      height: 23px;
+      //      line-height: 23px;
+      display: inline-block;
+      width: 200px;;
+      background-color: skyblue;
+    }
+  }
+
   .el-row {
     margin-bottom: 10px;
   }
@@ -62,6 +66,8 @@
     background-color: pink;
     width: 300px;
     height: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 
     .in {
       background-color: skyblue;
