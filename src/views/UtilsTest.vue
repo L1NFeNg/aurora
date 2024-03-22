@@ -16,9 +16,9 @@
 </script>
 
 <template>
-  <el-button @click="debouncedFunction('防抖')">防抖</el-button>
-  <el-button @click="throttledFunction('节流')">节流</el-button>
-  <el-button @click="fn('普通')">普通</el-button>
+  <Button @click="debouncedFunction('防抖')">防抖</Button>
+  <Button @click="throttledFunction('节流')">节流</Button>
+  <Button @click="fn('普通')">普通</Button>
   <input v-model="input" style="width: 240px" placeholder="Please input"/>
   {{ input }}
 </template>
