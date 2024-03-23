@@ -10,3 +10,12 @@ export interface ButtonProps {
 export interface FormBlockProps {
   title?: string;
 }
+
+export interface FormItemProps {
+  for: string;
+  title?: string;
+}
+
+export interface InputProps {
+  id: string;
+}

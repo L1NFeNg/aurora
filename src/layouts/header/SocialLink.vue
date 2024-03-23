@@ -30,7 +30,8 @@
     cursor: pointer;
     transition: color 600ms ease-out;
   }
-  i:hover{
+
+  i:hover {
     color: #333333;
   }
 </style>

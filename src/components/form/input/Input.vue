@@ -1,11 +1,13 @@
 <script setup lang="ts">
   import input from "@/components/form/input/Input.vue";
+  import { InputProps } from "@/types/form";
 
+  const props = withDefaults(defineProps<InputProps>(), {});
   const value = defineModel();
 </script>
 
 <template>
-  <input v-model="value"/>
+  <input :id="props.id" v-model="value"/>
 </template>
 
 <style scoped lang="scss">

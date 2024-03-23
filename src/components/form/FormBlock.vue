@@ -17,7 +17,9 @@
     </div>
     <transition name="fade">
       <div class="block-main" v-show="blockOpenedRef">
-        <slot></slot>
+        <el-row :gutter="10">
+          <slot></slot>
+        </el-row>
       </div>
     </transition>
   </div>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-
   import { ButtonAutoDisableModeEnum } from "@/enums/form/formEnum.ts";
+  import { generateId } from "@/utils/generateId.ts";
 
+  const itemId = generateId();
   const value = defineModel();
 </script>
 
@@ -17,9 +18,8 @@
       <Button :autoDisableMode="ButtonAutoDisableModeEnum.INTERVAL">间歇可点击</Button>
     </FormBlock>
     <FormBlock title="输入框测试">
-      <FormItem>
-        <Input v-model="value"/>
-        {{ value }}
+      <FormItem :for="itemId" title="单据编号">
+        <Input :id="itemId" v-model="value"/>
       </FormItem>
     </FormBlock>
   </div>

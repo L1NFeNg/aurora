@@ -9,7 +9,7 @@
   const open = (message: string) => {
     ElMessage(message);
   };
-  const input = debounceRef("",1000);
+  const input = debounceRef("", 1000);
 
   const debouncedFunction = debounce(fn, 1000);
   const throttledFunction = throttle(fn, 1000);
